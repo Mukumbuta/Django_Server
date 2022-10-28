@@ -1,7 +1,10 @@
 from django.db import models
 
-class SlackDetails(models.model):
-    slackUserName = models.Charfield(max_length=100)
+class SlackDetails(models.Model):
+    slackUserName = models.CharField(max_length=100)
     backend = models.BooleanField(null=False, blank=False)
-    age = models.IntergerField()
-    bio = models.TextFiled()
+    age = models.IntegerField()
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.slackUserName
